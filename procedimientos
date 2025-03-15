@@ -1,5 +1,5 @@
 --------------------------------------------------------------
-PROCEDIMIENTO INSERETAR UN PACIENTE 
+PROCEDIMIENTO INSERTAR UN PACIENTE 
 ---------------------------------------------------------------
 BEGIN
     -- Insertar los datos del paciente en la tabla "pacientes"
