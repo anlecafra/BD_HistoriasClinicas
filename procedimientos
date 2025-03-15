@@ -1,5 +1,5 @@
 --------------------------------------------------------------
-PROCEDIMIENTO INSERETAR DATOS
+PROCEDIMIENTO INSERETAR UN PACIENTE 
 ---------------------------------------------------------------
 BEGIN
     -- Insertar los datos del paciente en la tabla "pacientes"
@@ -36,6 +36,26 @@ BEGIN
     RAISE NOTICE 'Paciente % % insertado correctamente', p_primer_nombre, p_primer_apellido;
 END;
 
+----------------------------------------
+COMO LLAMAR AL PROCEDIMIENTO NSERTAR PACIENTES
+--------------------------------------
+-- Llamada al procedimiento para insertar un paciente
+CALL "Angel Calderón".insertar_paciente(
+    '1234567890',
+    'Juan',
+    'Carlos',
+    'Pérez',
+    'Gómez',
+    '1985-06-15',
+    'Masculino',
+    'Abogado',
+    'Calle Ficticia 123',
+    '3001234567',
+    'juan.perez@example.com',
+    1  -- El ID de la EPS asociada (suponiendo que 1 es un valor válido en la tabla "eps")
+);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -------------------------------------
 PROCEDIMIENTO INSERTAR EPS
@@ -66,9 +86,11 @@ BEGIN
     RAISE NOTICE 'EPS % insertado correctamente', p_codigo;
 END;
 $$;
----------------------------------------------
 
--- LLAMAR PROCEDIMIENTO PARA INSERTAR EPS
+
+---------------------------------------------
+ LLAMAR PROCEDIMIENTO PARA INSERTAR EPS
+------------------------------------------
 CALL "Angel Calderón".insertar_eps(
     'EPS001',
     'EPS Salud Total',
