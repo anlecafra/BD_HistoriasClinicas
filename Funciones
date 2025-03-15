@@ -1,0 +1,25 @@
+
+
+EGIN
+    RETURN QUERY
+    SELECT 
+        p.id AS paciente_id,
+        p.documento,
+        p.primer_nombre,
+        p.primer_apellido,
+        rc.fecha_hc,
+        rc."Motivo_consulta"
+    FROM 
+        "Angel Calderón".registros_clinicos rc
+    JOIN 
+        "Angel Calderón".pacientes p ON p.id = rc.pacientes_id_pcientes
+    JOIN 
+        "Angel Calderón".eps e ON p.eps = e.id
+    WHERE
+        e.codigo = 'EPS008'  
+        AND rc.fecha_hc BETWEEN '2024-12-01' AND '2024-12-31';  -- Filtro por fecha en diciembre de 2024
+END;
+
+--------------------------------------------------------------
+
+SELECT "Angel Calderón".listar_pacientes_nueva_eps_diciembre_2024()
