@@ -1,4 +1,6 @@
-
+------------------------------------------
+LISTAR PACIENTE NUEVA EPS DICIEMBRE 2024
+------------------------------------------
 
 EGIN
     RETURN QUERY
@@ -19,6 +21,7 @@ EGIN
         e.codigo = 'EPS008'  
         AND rc.fecha_hc BETWEEN '2024-12-01' AND '2024-12-31';  -- Filtro por fecha en diciembre de 2024
 END;
+
 
 --------------------------------------------------------------
 
