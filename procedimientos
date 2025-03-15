@@ -37,7 +37,7 @@ BEGIN
 END;
 
 ----------------------------------------
-COMO LLAMAR AL PROCEDIMIENTO NSERTAR PACIENTES
+LLAMAR AL PROCEDIMIENTO NSERTAR PACIENTES
 --------------------------------------
 -- Llamada al procedimiento para insertar un paciente
 CALL "Angel Calderón".insertar_paciente(
