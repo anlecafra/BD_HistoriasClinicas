@@ -1,0 +1,34 @@
+BEGIN
+    -- Insertar los datos del paciente en la tabla "pacientes"
+    INSERT INTO "Angel Calderón".pacientes (
+        documento,
+        primer_nombre,
+        segundo_nombre,
+        primer_apellido,
+        segundo_apellido,
+        fecha_nacimiento,
+        genero,
+        ocupacion,
+        direccion,
+        telefono,
+        correo_electronico,
+        eps
+    )
+    VALUES (
+        p_documento,
+        p_primer_nombre,
+        p_segundo_nombre,
+        p_primer_apellido,
+        p_segundo_apellido,
+        p_fecha_nacimiento,
+        p_genero,
+        p_ocupacion,
+        p_direccion,
+        p_telefono,
+        p_correo_electronico,
+        p_eps
+    );
+
+    -- Opcional: Agregar un mensaje de confirmación
+    RAISE NOTICE 'Paciente % % insertado correctamente', p_primer_nombre, p_primer_apellido;
+END;
