@@ -35,14 +35,45 @@ SELECT * FROM "Angel Calderón".vista_pacientes_activados;
 
 
 
------------------------------------------
-VISTA  DE LISTADO DE ENFERMEDADES QUE MPIEZAN CON C
------------------------------------------
+--------------------------------------------------
+VISTA DE  REGISTROS CLINICOS DE PACIENTES POR EPS
+--------------------------------------------------
 
 
-SELECT codigo AS cod,
-    descripcion,
-    activo
-   FROM "Angel Calderón".diagnosticos
-  WHERE descripcion::text ~~ 'C%'::text
-  ORDER BY descripcion;
+CREATE OR REPLACE VIEW "Angel Calderón".vista_registros_clinicos_eps AS
+SELECT 
+    rc.id AS registro_id,
+    rc.fecha_hc,
+    rc."Motivo_consulta",
+    rc.pacientes_id_pcientes,
+    p.primer_nombre,
+    p.primer_apellido,
+    e.codigo AS eps_codigo,
+    e.descripcion AS eps_descripcion
+FROM 
+    "Angel Calderón".registros_clinicos rc
+JOIN 
+    "Angel Calderón".pacientes p ON p.id = rc.pacientes_id_pcientes
+JOIN 
+    "Angel Calderón".eps e ON p.eps = e.id;
+
+
+---------------------------------------------------------
+VISTA DE REGISTROS CLINICOS CON HISTORIAL CLINICO RECIENTE
+---------------------------------------------------------
+
+CREATE OR REPLACE VIEW "Angel Calderón".vista_pacientes_historial_reciente AS
+SELECT 
+    p.id AS paciente_id,
+    p.documento,
+    p.primer_nombre,
+    p.primer_apellido,
+    rc.fecha_hc,
+    rc."Motivo_consulta"
+FROM 
+    "Angel Calderón".registros_clinicos rc
+JOIN 
+    "Angel Calderón".pacientes p ON p.id = rc.pacientes_id_pcientes
+WHERE 
+    rc.fecha_hc >= CURRENT_DATE - INTERVAL '30 days'; -- Registros de los últimos 30 días
+
