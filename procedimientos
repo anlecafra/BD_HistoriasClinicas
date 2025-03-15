@@ -35,3 +35,42 @@ BEGIN
     -- Opcional: Agregar un mensaje de confirmación
     RAISE NOTICE 'Paciente % % insertado correctamente', p_primer_nombre, p_primer_apellido;
 END;
+
+
+-------------------------------------
+PROCEDIMIENTO INSERTAR EPS
+------------------------------------
+
+CREATE OR REPLACE PROCEDURE "Angel Calderón".insertar_eps(
+    p_codigo VARCHAR,
+    p_descripcion VARCHAR,
+    p_regimen INTEGER
+)
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    -- Insertar los datos del EPS en la tabla "eps"
+    INSERT INTO "Angel Calderón".eps (
+        codigo,
+        descripcion,
+        regimen
+    )
+    VALUES (
+        p_codigo,
+        p_descripcion,
+        p_regimen
+    );
+
+    -- Opcional: Agregar un mensaje de confirmación
+    RAISE NOTICE 'EPS % insertado correctamente', p_codigo;
+END;
+$$;
+---------------------------------------------
+
+-- LLAMAR PROCEDIMIENTO PARA INSERTAR EPS
+CALL "Angel Calderón".insertar_eps(
+    'EPS001',
+    'EPS Salud Total',
+     1  -- El ID del régimen 
+);
