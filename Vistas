@@ -1,0 +1,11 @@
+-----------------------------------------
+LISTADO DE ENFERMEDADES QUE MPIEZAN CON C
+-----------------------------------------
+
+
+SELECT codigo AS cod,
+    descripcion,
+    activo
+   FROM "Angel Calderón".diagnosticos
+  WHERE descripcion::text ~~ 'C%'::text
+  ORDER BY descripcion;
