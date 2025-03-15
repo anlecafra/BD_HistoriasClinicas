@@ -2,7 +2,7 @@
 LISTAR PACIENTE NUEVA EPS DICIEMBRE 2024
 ------------------------------------------
 
-EGIN
+BEGIN
     RETURN QUERY
     SELECT 
         p.id AS paciente_id,
