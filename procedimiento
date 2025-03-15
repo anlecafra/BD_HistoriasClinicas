@@ -1,3 +1,6 @@
+--------------------------------------------------------------
+PROCEDIMIENTO INSERETAR DATOS
+---------------------------------------------------------------
 BEGIN
     -- Insertar los datos del paciente en la tabla "pacientes"
     INSERT INTO "Angel Calderón".pacientes (
