@@ -1,5 +1,42 @@
+------------------------------------
+VISTA DE PACIENTES ACTIVOS CON  EPS
+-------------------------------------
+
+CREATE OR REPLACE VIEW "Angel Calderón".vista_pacientes_activados AS
+SELECT 
+    p.id AS paciente_id,
+    p.documento,
+    p.primer_nombre,
+    p.segundo_nombre,
+    p.primer_apellido,
+    p.segundo_apellido,
+    p.fecha_nacimiento,
+    p.genero,
+    p.ocupacion,
+    p.direccion,
+    p.telefono,
+    p.correo_electronico,
+    e.codigo AS eps_codigo,
+    e.descripcion AS eps_descripcion,
+    e.regimen AS eps_regimen
+FROM 
+    "Angel Calderón".pacientes p
+JOIN 
+    "Angel Calderón".eps e ON p.eps = e.id
+WHERE 
+    p.eps IS NOT NULL;  -- Filtrar solo los pacientes con EPS asociada
+
+------------------
+uso de la vista
+-----------------
+
+-- Consultar la vista de pacientes activos con EPS
+SELECT * FROM "Angel Calderón".vista_pacientes_activados;
+
+
+
 -----------------------------------------
-LISTADO DE ENFERMEDADES QUE MPIEZAN CON C
+VISTA  DE LISTADO DE ENFERMEDADES QUE MPIEZAN CON C
 -----------------------------------------
 
 
